@@ -7,12 +7,17 @@ const DashboardListItem = ({
   title = 'title',
   content = 'content',
   path = '',
+  children,
 }) => {
   return (
     <Link to={`/${path}`}>
       <li className="dashboard-list-item">
         <div className="title">{title}</div>
-        <div className="content">{content}</div>
+        {children ? (
+          <div className="content">{children}</div>
+        ) : (
+          <div className="content">{content}</div>
+        )}
       </li>
     </Link>
   );

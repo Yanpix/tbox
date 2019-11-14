@@ -1,10 +1,13 @@
 import React from 'react';
 import DashboardListItem from '../dashboard-list-item';
+import Weather from '../weather';
 import './dashboard-list.css';
 
 const DashboardList = () => {
   const list = [
-    <DashboardListItem key="one" />,
+    <DashboardListItem title="Weather" key="weather">
+      <Weather />
+    </DashboardListItem>,
     <DashboardListItem key="two" />,
     <DashboardListItem key="three" />,
     <DashboardListItem key="four" />,
