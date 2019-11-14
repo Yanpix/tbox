@@ -1,0 +1,12 @@
+.dashboard-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: ". . ." ". . .";
+    grid-gap: 80px;
+}
+
+.dashboard-list a {
+    text-decoration: none;
+}
