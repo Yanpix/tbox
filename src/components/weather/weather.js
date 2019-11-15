@@ -20,25 +20,27 @@ class Weather extends Component {
     this.getWeather();
   }
 
-  getWeather = async () => {
+  getWeather = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
+      weatherApiService
+        .getWeather(latitude, longitude)
+        .then((data) => {
+          const {
+            name: city,
+            main: { temp },
+            weather,
+          } = data;
+          const { description: precipitation } = weather[0];
 
-      weatherApiService.getWeather(latitude, longitude).then((data) => {
-        const {
-          name: city,
-          main: { temp },
-          weather,
-        } = data;
-        const { description: precipitation } = weather[0];
-
-        this.setState({
-          isLoading: false,
-          city,
-          temp,
-          precipitation,
-        });
-      });
+          this.setState({
+            isLoading: false,
+            city,
+            temp,
+            precipitation,
+          });
+        })
+        .catch((err) => this.setState({ isError: true }));
     });
   };
 
@@ -46,6 +48,8 @@ class Weather extends Component {
     switch (precipitation) {
       case 'clear sky':
         return <img src="/images/icons/sun.svg" alt="clear sky" />;
+      case 'broken clouds':
+        return <img src="/images/icons/cloud-sun.svg" alt="broken clouds" />;
       case 'overcast clouds':
         return <img src="/images/icons/cloud.svg" alt="overcast clouds" />;
       default:

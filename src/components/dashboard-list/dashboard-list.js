@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardListItem from '../dashboard-list-item';
 import Weather from '../weather';
+import Clothes from '../clothes';
 import './dashboard-list.css';
 
 const DashboardList = () => {
@@ -14,10 +15,12 @@ const DashboardList = () => {
     <DashboardListItem
       title="Tasks"
       content="tasks"
-      path="tasks"
       key="tasks"
+      path="/tasks"
     />,
-    <DashboardListItem key="six" />,
+    <DashboardListItem title="Clothes" key="clothes">
+      <Clothes />
+    </DashboardListItem>,
   ];
   return <ul className="dashboard-list">{list}</ul>;
 };

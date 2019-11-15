@@ -3,30 +3,30 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './dashboard-list-item.css';
 
-const DashboardListItem = ({
-  title = 'title',
-  content = 'content',
-  path = '',
-  children,
-}) => {
-  return (
-    <Link to={`/${path}`}>
-      <li className="dashboard-list-item">
-        <div className="title">{title}</div>
-        {children ? (
-          <div className="content">{children}</div>
-        ) : (
-          <div className="content">{content}</div>
-        )}
-      </li>
-    </Link>
+const DashboardListItem = ({ title = 'title', path = '', children }) => {
+  const item = (
+    <li className="dashboard-list-item">
+      <div className="title">{title}</div>
+      {children ? (
+        <div className="content">{children}</div>
+      ) : (
+        <div className="content">content</div>
+      )}
+    </li>
   );
+
+  return <div>{path ? <Link to={path}>{item}</Link> : item}</div>;
+};
+
+DashboardListItem.defaultProps = {
+  path: '',
+  children: null,
 };
 
 DashboardListItem.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default DashboardListItem;
