@@ -1,0 +1,21 @@
+.file-uploader-container {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 5px solid #ffe75e;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.file-uploader-container input[type='file'] {
+  display: none;
+}
+
+.file-uploader-container .icon-container svg {
+  width: 150px;
+  height: 150px;
+  fill: #ffe75e;
+}

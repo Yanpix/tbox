@@ -1,15 +1,15 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
 }
 
 .app {
-    width: 100vw;
-    height: 100vh;
-    background-image: url("/images/background.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  min-height: 100vh;
+  background-image: url('/images/background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }

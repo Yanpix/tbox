@@ -2,6 +2,7 @@ import React from 'react';
 import DashboardListItem from '../dashboard-list-item';
 import Weather from '../weather';
 import Clothes from '../clothes';
+import PhotosPreview from '../photos-preview';
 import './dashboard-list.css';
 
 const DashboardList = () => {
@@ -11,7 +12,9 @@ const DashboardList = () => {
     </DashboardListItem>,
     <DashboardListItem key="two" />,
     <DashboardListItem key="three" />,
-    <DashboardListItem key="four" />,
+    <DashboardListItem title="Photos" key="photos" path="/photos">
+      <PhotosPreview />
+    </DashboardListItem>,
     <DashboardListItem
       title="Tasks"
       content="tasks"

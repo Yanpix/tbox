@@ -40,7 +40,7 @@ class Weather extends Component {
             precipitation,
           });
         })
-        .catch((err) => this.setState({ isError: true }));
+        .catch(() => this.setState({ isError: true }));
     });
   };
 

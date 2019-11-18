@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import clothesApiService from '../../services/clotesApiService';
@@ -28,7 +29,9 @@ class Clothes extends Component {
     clothesApiService
       .getClothes('one')
       .then((data) => this.sortClothes(data))
-      .catch((err) => this.setState({ isError: true }));
+      .catch(() => {
+        this.setState({ isError: true });
+      });
   }
 
   sortClothes = (clothes) => {

@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import updateDataList from './updateDataList';
-import someReducer from './someReducer';
+import photosReducer from './photosReducer';
 
 export default combineReducers({
-  someReducer,
-  updateDataList,
+  photosReducer,
 });

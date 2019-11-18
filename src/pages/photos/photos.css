@@ -1,0 +1,24 @@
+.photos-page {
+  margin: auto;
+  max-width: 1360px;
+}
+.photos-page h1 {
+  color: white;
+  font-size: 40px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.photos-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: '. . .' '. . .';
+  grid-gap: 80px;
+  padding: 80px 0;
+}
+
+.photos-list a {
+  text-decoration: none;
+}

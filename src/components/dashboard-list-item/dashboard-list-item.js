@@ -15,7 +15,7 @@ const DashboardListItem = ({ title = 'title', path = '', children }) => {
     </li>
   );
 
-  return <div>{path ? <Link to={path}>{item}</Link> : item}</div>;
+  return <>{path ? <Link to={path}>{item}</Link> : item}</>;
 };
 
 DashboardListItem.defaultProps = {
