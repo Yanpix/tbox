@@ -38,7 +38,9 @@ const fetchPhotos = () => (dispatch) => {
     .then((data) => {
       dispatch(photosLoaded(data));
     })
-    .catch((error) => dispatch(photosError(error)));
+    .catch((error) => {
+      dispatch(photosError(error));
+    });
 };
 
 const addPhotoRequested = () => {

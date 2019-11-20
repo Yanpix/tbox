@@ -15,7 +15,6 @@ class PhotosPreview extends Component {
 
   render() {
     const { photos, loading, error } = this.props;
-
     if (loading) {
       return <Spinner />;
     }

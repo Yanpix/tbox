@@ -1,0 +1,15 @@
+.news-list-item {
+  padding: 15px 0;
+}
+
+.news-list-item .title {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+.news-list-item .content {
+  color: white;
+  font-size: 22px;
+  text-align: justify;
+}

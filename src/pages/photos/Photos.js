@@ -50,7 +50,7 @@ class Photos extends Component {
         <h1>Photos</h1>
         {loading ? (
           <div className="spinner-fixed-center">
-            <Spinner className="spinner-fixed-center" />
+            <Spinner />
           </div>
         ) : (
           <ul className="photos-list">

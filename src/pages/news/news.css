@@ -1,0 +1,33 @@
+.news-page {
+  margin: auto;
+  max-width: 1360px;
+  padding-top: 30px;
+}
+
+.news-page h1 {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  left: 30px;
+  right: 30px;
+}
+
+.news-image-container {
+  width: 400px;
+  height: 300px;
+  margin: auto;
+  border-radius: 10px;
+  border: 5px solid #ffe75e;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.news-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-list {
+  list-style: none;
+}

@@ -4,13 +4,16 @@ import Weather from '../weather';
 import Clothes from '../clothes';
 import PhotosPreview from '../photos-preview';
 import './dashboard-list.css';
+import NewsPreview from '../news-preview';
 
 const DashboardList = () => {
   const list = [
     <DashboardListItem title="Weather" key="weather">
       <Weather />
     </DashboardListItem>,
-    <DashboardListItem key="two" />,
+    <DashboardListItem title="News" key="news" path="/news">
+      <NewsPreview />
+    </DashboardListItem>,
     <DashboardListItem key="three" />,
     <DashboardListItem title="Photos" key="photos" path="/photos">
       <PhotosPreview />

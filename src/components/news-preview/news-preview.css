@@ -1,0 +1,17 @@
+.news-preview {
+  align-self: flex-start;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.news-preview > .title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.news-preview > .content {
+  text-align: justify;
+  font-size: 18px;
+}
