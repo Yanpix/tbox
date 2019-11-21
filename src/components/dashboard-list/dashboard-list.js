@@ -5,6 +5,7 @@ import Clothes from '../clothes';
 import PhotosPreview from '../photos-preview';
 import './dashboard-list.css';
 import NewsPreview from '../news-preview';
+import SportPreview from '../sport-preview';
 
 const DashboardList = () => {
   const list = [
@@ -14,7 +15,9 @@ const DashboardList = () => {
     <DashboardListItem title="News" key="news" path="/news">
       <NewsPreview />
     </DashboardListItem>,
-    <DashboardListItem key="three" />,
+    <DashboardListItem title="Sport" key="sport" path="/sport">
+      <SportPreview />
+    </DashboardListItem>,
     <DashboardListItem title="Photos" key="photos" path="/photos">
       <PhotosPreview />
     </DashboardListItem>,

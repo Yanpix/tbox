@@ -1,0 +1,18 @@
+.sport-page {
+  margin: auto;
+  max-width: 1360px;
+  padding-top: 30px;
+}
+
+.sport-page h1 {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  left: 30px;
+  right: 30px;
+}
+
+.sport-list {
+  list-style: none;
+  margin-top: 20px;
+}

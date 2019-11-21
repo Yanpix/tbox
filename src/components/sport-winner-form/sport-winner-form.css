@@ -1,0 +1,31 @@
+.sport-winner-container {
+  position: relative;
+  width: 800px;
+  margin: auto;
+}
+
+.sport-winner-container input[type='text'] {
+  outline: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  margin-top: 100px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding: 5px;
+}
+
+.sport-winner-container input[type='text']::placeholder {
+  color: white;
+}
+
+.sport-winner-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+}

@@ -4,6 +4,7 @@ import Dashboard from './pages/dashboard';
 import Tasks from './pages/tasks';
 import Photos from './pages/photos';
 import News from './pages/news';
+import Sport from './pages/sport';
 
 const Routes = () => {
   return (
@@ -16,6 +17,9 @@ const Routes = () => {
       </Route>
       <Route path="/news">
         <News />
+      </Route>
+      <Route path="/sport">
+        <Sport />
       </Route>
       <Route path="/">
         <Dashboard />

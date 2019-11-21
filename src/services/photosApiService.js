@@ -6,7 +6,7 @@ class PhotosApiService {
       method: 'GET',
       headers: {
         'x-access-token':
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDRmZmFkNmE4YTFlMDQxNDk1ODVjOSIsImlhdCI6MTU3NDI0MDg3MywiZXhwIjoxNTc0MzI3MjczfQ.DNjcjvq7Sf89nE-aXMB8Vquy0trhRqgTfy503TdFxUs',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDRmZmFkNmE4YTFlMDQxNDk1ODVjOSIsImlhdCI6MTU3NDMzMDA1OSwiZXhwIjoxNTc0NDE2NDU5fQ.LMFPET8um5NWvIkoRJXCFMKkoxjpsZai4Mq_YfUHSrE',
       },
     }).then((resp) => resp.json());
 
