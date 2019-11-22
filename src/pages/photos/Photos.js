@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import PhotosListItem from '../../components/photos-list-item';
-import FileUploader from '../../components/file-uploader';
+import PhotoUploader from '../../components/file-uploader';
 import Spinner from '../../components/spinner';
 import ErrorIndicator from '../../components/error-indicator';
 import { fetchPhotos, addPhotos, removePhoto } from '../../actions';
@@ -54,7 +54,7 @@ class Photos extends Component {
           </div>
         ) : (
           <ul className="photos-list">
-            <FileUploader
+            <PhotoUploader
               handleFileInputChange={this.handleFileInputChange}
               inputRef={this.fileInputRef}
               triggerInput={this.triggerInput}

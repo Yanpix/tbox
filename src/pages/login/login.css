@@ -1,0 +1,26 @@
+.login-page,
+.register-page {
+  margin: auto;
+  max-width: 1360px;
+  padding-top: 60px;
+}
+
+.login-page h1,
+.register-page h1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+
+.login-info {
+  color: white;
+  text-align: center;
+  font-size: 26px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.login-info > a {
+  text-decoration: none;
+  color: #ffe75e;
+}

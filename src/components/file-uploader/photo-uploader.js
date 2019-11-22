@@ -2,7 +2,7 @@ import React from 'react';
 import './file-uploader.css';
 import propTypes from 'prop-types';
 
-const FileUploader = ({ triggerInput, inputRef, handleFileInputChange }) => {
+const PhotoUploader = ({ triggerInput, inputRef, handleFileInputChange }) => {
   return (
     <li onClick={triggerInput} className="file-uploader-container">
       <input
@@ -30,10 +30,10 @@ const FileUploader = ({ triggerInput, inputRef, handleFileInputChange }) => {
   );
 };
 
-FileUploader.propTypes = {
+PhotoUploader.propTypes = {
   inputRef: propTypes.objectOf(propTypes.any).isRequired,
   triggerInput: propTypes.func.isRequired,
   handleFileInputChange: propTypes.func.isRequired,
 };
 
-export default FileUploader;
+export default PhotoUploader;
