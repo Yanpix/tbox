@@ -25,10 +25,10 @@ const newsError = (error) => {
   };
 };
 
-const fetchNews = () => (dispatch) => {
+const fetchNews = (token) => (dispatch) => {
   dispatch(newsRequested());
   newsApiService
-    .getNews()
+    .getNews(token)
     .then((data) => {
       dispatch(newsLoaded(data));
     })

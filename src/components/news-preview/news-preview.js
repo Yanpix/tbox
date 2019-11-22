@@ -8,8 +8,8 @@ import './news-preview.css';
 
 class NewsPreview extends Component {
   componentDidMount() {
-    const { fetchNews } = this.props;
-    fetchNews();
+    const { token, fetchNews } = this.props;
+    fetchNews(token);
   }
 
   render() {
@@ -41,6 +41,7 @@ NewsPreview.defaultProps = {
 };
 
 NewsPreview.propTypes = {
+  token: propTypes.string.isRequired,
   news: propTypes.oneOfType([propTypes.array, propTypes.object]).isRequired,
   items: propTypes.arrayOf(propTypes.object),
   fetchNews: propTypes.func.isRequired,
@@ -50,7 +51,9 @@ NewsPreview.propTypes = {
 
 const mapStateToProps = (state) => {
   const { news, loading, error } = state.newsReducer;
+  const { token } = state.userReducer;
   return {
+    token,
     news,
     loading,
     error,
@@ -59,7 +62,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchNews: () => dispatch(fetchNews()),
+    fetchNews: (token) => dispatch(fetchNews(token)),
   };
 };
 

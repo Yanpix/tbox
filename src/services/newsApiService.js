@@ -1,11 +1,10 @@
 const BASE_URL = 'http://localhost:3000';
 
 class NewsApiService {
-  getNews = () => {
+  getNews = (token) => {
     return fetch(`${BASE_URL}/news`, {
       headers: {
-        'x-access-token':
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDRmZmFkNmE4YTFlMDQxNDk1ODVjOSIsImlhdCI6MTU3NDQxNzA0NSwiZXhwIjoxNTc0NTAzNDQ1fQ.gDcI4QsPtuHzXaa8blx-9OOQniFQ7K-QDKhxp1oEXfc',
+        'x-access-token': token,
       },
     }).then((resp) => resp.json());
   };

@@ -9,8 +9,8 @@ import './photos-preview.css';
 
 class PhotosPreview extends Component {
   componentDidMount() {
-    const { fetchPhotos } = this.props;
-    fetchPhotos();
+    const { token, fetchPhotos } = this.props;
+    fetchPhotos(token);
   }
 
   render() {
@@ -38,6 +38,7 @@ PhotosPreview.defaultProps = {
 };
 
 PhotosPreview.propTypes = {
+  token: propTypes.string.isRequired,
   photos: propTypes.arrayOf(propTypes.object).isRequired,
   fetchPhotos: propTypes.func.isRequired,
   loading: propTypes.bool.isRequired,
@@ -46,7 +47,9 @@ PhotosPreview.propTypes = {
 
 const mapStateToProps = (state) => {
   const { photos, loading, error } = state.photosReducer;
+  const { token } = state.userReducer;
   return {
+    token,
     photos,
     loading,
     error,
@@ -55,7 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPhotos: () => dispatch(fetchPhotos()),
+    fetchPhotos: (token) => dispatch(fetchPhotos(token)),
   };
 };
 

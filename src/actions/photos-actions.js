@@ -31,10 +31,10 @@ const photosError = (error) => {
   };
 };
 
-const fetchPhotos = () => (dispatch) => {
+const fetchPhotos = (token) => (dispatch) => {
   dispatch(photosRequested());
   photosApiService
-    .getAllPhotos()
+    .getAllPhotos(token)
     .then((data) => {
       dispatch(photosLoaded(data));
     })
@@ -63,10 +63,10 @@ const addPhotoError = (error) => {
   };
 };
 
-const addPhotos = (formData) => (dispatch) => {
+const addPhotos = (token, formData) => (dispatch) => {
   dispatch(addPhotoRequested());
   photosApiService
-    .sendPhotos(formData)
+    .sendPhotos(token, formData)
     .then((data) => {
       dispatch(addPhotoLoaded(data));
     })
@@ -93,10 +93,10 @@ const removePhotoError = (error) => {
   };
 };
 
-const removePhoto = (id) => (dispatch) => {
+const removePhoto = (token, id) => (dispatch) => {
   dispatch(removePhotoRequested());
   photosApiService
-    .removePhoto(id)
+    .removePhoto(token, id)
     .then((data) => {
       dispatch(removePhotoRemoved(data));
     })

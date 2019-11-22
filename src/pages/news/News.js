@@ -9,10 +9,10 @@ import NewsListItem from '../../components/news-list-item';
 
 class News extends Component {
   componentDidMount() {
-    const { news, fetchNews } = this.props;
+    const { token, news, fetchNews } = this.props;
 
     if (!news.items) {
-      fetchNews();
+      fetchNews(token);
     }
   }
 
@@ -51,6 +51,7 @@ News.defaultProps = {
 };
 
 News.propTypes = {
+  token: propTypes.string.isRequired,
   news: propTypes.oneOfType([propTypes.array, propTypes.object]).isRequired,
   fetchNews: propTypes.func.isRequired,
   loading: propTypes.bool.isRequired,
@@ -59,7 +60,9 @@ News.propTypes = {
 
 const mapStateToProps = (state) => {
   const { news, loading, error } = state.newsReducer;
+  const { token } = state.userReducer;
   return {
+    token,
     news,
     loading,
     error,
@@ -68,7 +71,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchNews: () => dispatch(fetchNews()),
+    fetchNews: (token) => dispatch(fetchNews(token)),
   };
 };
 

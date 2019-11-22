@@ -15,16 +15,16 @@ class Photos extends Component {
   }
 
   componentDidMount() {
-    const { photos, fetchPhotos } = this.props;
+    const { token, photos, fetchPhotos } = this.props;
 
     if (!photos.length) {
-      fetchPhotos();
+      fetchPhotos(token);
     }
   }
 
   handleOnImageClick = (id) => {
-    const { removePhoto } = this.props;
-    removePhoto(id);
+    const { token, removePhoto } = this.props;
+    removePhoto(token, id);
   };
 
   triggerInput = (e) => {
@@ -34,12 +34,12 @@ class Photos extends Component {
 
   handleFileInputChange = (e) => {
     const { files } = e.target;
-    const { addPhotos } = this.props;
+    const { token, addPhotos } = this.props;
 
     const formData = new FormData();
     [...files].forEach((image, i) => formData.append(`image_${i}`, image));
 
-    addPhotos(formData);
+    addPhotos(token, formData);
   };
 
   render() {
@@ -80,6 +80,7 @@ Photos.defaultProps = {
 };
 
 Photos.propTypes = {
+  token: propTypes.string.isRequired,
   photos: propTypes.arrayOf(propTypes.object).isRequired,
   fetchPhotos: propTypes.func.isRequired,
   addPhotos: propTypes.func.isRequired,
@@ -90,7 +91,9 @@ Photos.propTypes = {
 
 const mapStateToProps = (state) => {
   const { photos, loading, error } = state.photosReducer;
+  const { token } = state.userReducer;
   return {
+    token,
     photos,
     loading,
     error,
@@ -99,9 +102,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPhotos: () => dispatch(fetchPhotos()),
-    addPhotos: (formData) => dispatch(addPhotos(formData)),
-    removePhoto: (id) => dispatch(removePhoto(id)),
+    fetchPhotos: (token) => dispatch(fetchPhotos(token)),
+    addPhotos: (token, formData) => dispatch(addPhotos(token, formData)),
+    removePhoto: (token, id) => dispatch(removePhoto(token, id)),
   };
 };
 
