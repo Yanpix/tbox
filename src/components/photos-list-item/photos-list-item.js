@@ -1,11 +1,12 @@
 import React from 'react';
 import './photos-list-item.css';
 import propTypes from 'prop-types';
+import { BASE_URL } from '../../utils/constants';
 
 const PhotosListItem = ({ src, id, handleOnImageClick }) => {
   return (
     <li className="photos-list-item" onClick={() => handleOnImageClick(id)}>
-      <img src={`http://localhost:3000${src}`} alt="preview" id={id} />
+      <img src={`${BASE_URL}${src}`} alt="preview" id={id} />
       <div className="remove-container">
         <svg
           aria-hidden="true"

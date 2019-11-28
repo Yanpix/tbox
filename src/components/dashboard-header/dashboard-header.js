@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions';
 import './dashboard-header.css';
+import { BASE_URL } from '../../utils/constants';
 
 class DashboardHeader extends Component {
   handleLogoutClick = () => {
@@ -15,7 +16,7 @@ class DashboardHeader extends Component {
     const { name, profile_picture: profilePicture } = user;
 
     const avatar = profilePicture ? (
-      <img src={`http://localhost:3000${profilePicture.url}`} alt="avatar" />
+      <img src={`${BASE_URL}${profilePicture.url}`} alt="avatar" />
     ) : (
       <img src="/images/avatar.jpg" alt="avatar" />
     );

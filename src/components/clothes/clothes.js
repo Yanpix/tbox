@@ -1,19 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import clothesApiService from '../../services/clotesApiService';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 import './clothes.css';
-
-const COLORS = [
-  '#0088FE',
-  '#00C49F',
-  '#FFBB28',
-  '#ff8042',
-  '#ff5ac5',
-  '#008011',
-];
+import { COLORS } from '../../utils/constants';
 
 class Clothes extends Component {
   constructor(props) {
@@ -26,8 +20,10 @@ class Clothes extends Component {
   }
 
   componentDidMount() {
+    const { user } = this.props;
+
     clothesApiService
-      .getClothes('one')
+      .getClothes(user.name)
       .then((data) => this.sortClothes(data))
       .catch((error) => {
         this.setState({ isLoading: false, error });
@@ -87,4 +83,15 @@ class Clothes extends Component {
   }
 }
 
-export default Clothes;
+Clothes.propTypes = {
+  user: propTypes.oneOfType([propTypes.object]).isRequired,
+};
+
+const mapStateToProps = (state) => {
+  const { user } = state.userReducer;
+  return {
+    user,
+  };
+};
+
+export default connect(mapStateToProps)(Clothes);
