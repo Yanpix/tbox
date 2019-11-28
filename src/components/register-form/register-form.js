@@ -150,12 +150,12 @@ RegisterForm.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const { isRegistered, user, loading, error } = state.userReducer;
+  const { isRegistered, user, loading, registerError } = state.userReducer;
   return {
     isRegistered,
     user,
     loading,
-    error,
+    error: registerError,
   };
 };
 

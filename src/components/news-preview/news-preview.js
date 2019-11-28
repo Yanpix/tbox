@@ -24,7 +24,7 @@ class NewsPreview extends Component {
     }
 
     if (error) {
-      return <ErrorIndicator />;
+      return <ErrorIndicator error={error} />;
     }
     return (
       <div className="news-preview">

@@ -1,0 +1,53 @@
+.tasks-preview-list-item {
+  display: flex;
+}
+
+.tasks-preview-list-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.task-field-preview {
+  position: relative;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.task-field-preview::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 96%;
+  background: #000;
+  border-radius: 8px;
+}
+
+.task-status-label-preview {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  background: white;
+  position: relative;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffe75e;
+  pointer-events: none;
+}
+
+.task-status-label-preview input {
+  position: absolute;
+  z-index: -1;
+}
+
+.task-status-label-preview i {
+  display: none;
+  width: 15px;
+  height: 15px;
+  font-size: 16px;
+}
+
+.task-status-label-preview input:checked + i {
+  display: block;
+}

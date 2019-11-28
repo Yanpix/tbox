@@ -9,7 +9,7 @@ class Weather extends Component {
     super(props);
     this.state = {
       isLoading: true,
-      isError: false,
+      error: null,
       city: '',
       temp: null,
       precipitation: '',
@@ -40,7 +40,7 @@ class Weather extends Component {
             precipitation,
           });
         })
-        .catch(() => this.setState({ isError: true }));
+        .catch((err) => this.setState({ error: err }));
     });
   };
 
@@ -58,7 +58,7 @@ class Weather extends Component {
   };
 
   render() {
-    const { isLoading, isError, city, temp, precipitation } = this.state;
+    const { isLoading, error, city, temp, precipitation } = this.state;
 
     const PrecipitationIcon = this.setPrecipitationIcon(precipitation);
 
@@ -66,8 +66,8 @@ class Weather extends Component {
       return <Spinner />;
     }
 
-    if (isError) {
-      return <ErrorIndicator />;
+    if (error) {
+      return <ErrorIndicator error={error} />;
     }
 
     return (

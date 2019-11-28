@@ -12,13 +12,13 @@ import Sport from './pages/sport';
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <PrivateRoute path="/tasks" component={Tasks} />
-      <PrivateRoute path="/photos" component={Photos} />
-      <PrivateRoute path="/news" component={News} />
-      <PrivateRoute path="/sport" component={Sport} />
-      <PrivateRoute path="/" component={Dashboard} />
+      <Route path="/login" component={() => <Login />} />
+      <Route path="/register" component={() => <Register />} />
+      <PrivateRoute path="/tasks" component={() => <Tasks />} />
+      <PrivateRoute path="/photos" component={() => <Photos />} />
+      <PrivateRoute path="/news" component={() => <News />} />
+      <PrivateRoute path="/sport" component={() => <Sport />} />
+      <PrivateRoute path="/" component={() => <Dashboard />} />
     </Switch>
   );
 };

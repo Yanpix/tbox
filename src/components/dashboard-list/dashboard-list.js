@@ -3,9 +3,10 @@ import DashboardListItem from '../dashboard-list-item';
 import Weather from '../weather';
 import Clothes from '../clothes';
 import PhotosPreview from '../photos-preview';
-import './dashboard-list.css';
 import NewsPreview from '../news-preview';
 import SportPreview from '../sport-preview';
+import TasksPreview from '../tasks-preview';
+import './dashboard-list.css';
 
 const DashboardList = () => {
   const list = [
@@ -21,12 +22,9 @@ const DashboardList = () => {
     <DashboardListItem title="Photos" key="photos" path="/photos">
       <PhotosPreview />
     </DashboardListItem>,
-    <DashboardListItem
-      title="Tasks"
-      content="tasks"
-      key="tasks"
-      path="/tasks"
-    />,
+    <DashboardListItem title="Tasks" key="tasks" path="/tasks">
+      <TasksPreview />
+    </DashboardListItem>,
     <DashboardListItem title="Clothes" key="clothes">
       <Clothes />
     </DashboardListItem>,

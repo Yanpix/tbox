@@ -85,12 +85,12 @@ LoginForm.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const { isLoggedIn, user, loading, error } = state.userReducer;
+  const { isLoggedIn, user, loading, loginError } = state.userReducer;
   return {
     isLoggedIn,
     user,
     loading,
-    error,
+    error: loginError,
   };
 };
 

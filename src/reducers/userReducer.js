@@ -22,7 +22,9 @@ const initialState = {
     },
   },
   loading: false,
-  error: null,
+  registerError: null,
+  loginError: null,
+  logoutError: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -31,14 +33,14 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: null,
+        registerError: null,
       };
     }
     case REGISTER_USER_SUCCESS: {
       return {
         ...state,
         loading: false,
-        error: null,
+        registerError: null,
         isRegistered: true,
       };
     }
@@ -46,7 +48,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        registerError: action.payload,
       };
     }
 
@@ -54,24 +56,25 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: null,
+        loginError: null,
       };
     }
     case LOGIN_USER_SUCCESS: {
       const { token, user } = action.payload;
       return {
+        ...state,
         isLoggedIn: true,
         token,
         user,
         loading: false,
-        error: null,
+        loginError: null,
       };
     }
     case LOGIN_USER_FAILURE: {
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        loginError: action.payload,
       };
     }
 
@@ -91,7 +94,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        logoutError: action.payload,
       };
     }
 

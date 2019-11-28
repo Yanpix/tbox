@@ -1,0 +1,77 @@
+.task-list-item,
+.task-status-label {
+  display: flex;
+}
+
+.task-list-item {
+  list-style-type: none;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.task-field {
+  position: relative;
+  width: 90%;
+  padding: 0 0 3px 5px;
+}
+
+.task-field::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.task-list-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.task-field > input[type='text'] {
+  color: white;
+  font-size: 22px;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+.delete-task {
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
+}
+
+.task-status-label {
+  width: 30px;
+  height: 30px;
+  background: white;
+  position: relative;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffe75e;
+  cursor: pointer;
+}
+
+.task-status-label input {
+  position: absolute;
+  z-index: -1;
+}
+
+.task-status-label i {
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.task-status-label input:checked + i {
+  display: block;
+}

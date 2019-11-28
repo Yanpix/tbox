@@ -70,8 +70,10 @@ const loginUser = (name, password) => (dispatch) => {
     .then((userData) => {
       if (userData.auth) {
         dispatch(loginSuccess(userData));
-      } else {
+      } else if (typeof userData === 'string') {
         dispatch(loginError(userData));
+      } else {
+        dispatch(loginError('Wrong e-mail or password'));
       }
     })
     .catch((error) => dispatch(loginError(error)));

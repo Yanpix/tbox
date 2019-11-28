@@ -40,7 +40,7 @@ class News extends Component {
             </ul>
           </>
         )}
-        {error && <ErrorIndicator />}
+        {error && <ErrorIndicator error={error} />}
       </div>
     );
   }

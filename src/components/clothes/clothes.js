@@ -21,7 +21,7 @@ class Clothes extends Component {
     this.state = {
       chartData: [],
       isLoading: true,
-      isError: false,
+      error: null,
     };
   }
 
@@ -29,8 +29,8 @@ class Clothes extends Component {
     clothesApiService
       .getClothes('one')
       .then((data) => this.sortClothes(data))
-      .catch(() => {
-        this.setState({ isError: true });
+      .catch((error) => {
+        this.setState({ isLoading: false, error });
       });
   }
 
@@ -57,14 +57,14 @@ class Clothes extends Component {
   };
 
   render() {
-    const { chartData, isLoading, isError } = this.state;
+    const { chartData, isLoading, error } = this.state;
 
     if (isLoading) {
       return <Spinner />;
     }
 
-    if (isError) {
-      return <ErrorIndicator />;
+    if (error) {
+      return <ErrorIndicator error={error} />;
     }
 
     return (

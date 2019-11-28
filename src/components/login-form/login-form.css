@@ -57,3 +57,8 @@
   height: 50px;
   font-size: 24px;
 }
+
+.login-error {
+  color: white;
+  text-align: center;
+}
