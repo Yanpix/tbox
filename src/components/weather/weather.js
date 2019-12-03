@@ -21,6 +21,20 @@ class Weather extends Component {
   }
 
   getWeather = () => {
+    if (!navigator.geolocation) {
+      this.setState({
+        isLoading: false,
+        error: 'Geolocation is not supported by your browser',
+      });
+    } else {
+      navigator.geolocation.getCurrentPosition(
+        this.weatherSuccess,
+        this.weatherError
+      );
+    }
+  };
+
+  weatherSuccess = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       weatherApiService
@@ -40,7 +54,14 @@ class Weather extends Component {
             precipitation,
           });
         })
-        .catch((err) => this.setState({ error: err }));
+        .catch((err) => this.setState({ isLoading: false, error: err }));
+    });
+  };
+
+  weatherError = () => {
+    this.setState({
+      isLoading: false,
+      error: 'Unable to retrieve your location',
     });
   };
 
